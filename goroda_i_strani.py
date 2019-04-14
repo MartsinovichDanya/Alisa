@@ -51,7 +51,7 @@ def handle_dialog(res, req):
         # Получаем города из нашего
         cities = get_cities(req)
         if not cities:
-            res['response']['text'] = 'Ты не написал название не одного города!'
+            res['response']['text'] = f'{sessionStorage[user_id]["first_name"]}, ты не написал название ни одного города!'
         elif len(cities) == 1:
             res['response']['text'] = 'Этот город в стране - ' + \
                                       get_geo_info(cities[0], 'country')
@@ -61,7 +61,7 @@ def handle_dialog(res, req):
             res['response']['text'] = 'Расстояние между этими городами: ' + \
                                       str(round(distance)) + ' км.'
         else:
-            res['response']['text'] = 'Слишком много городов!'
+            res['response']['text'] = f'{sessionStorage[user_id]["first_name"]}, ты ввел слишком много городов!'
 
 
 def get_cities(req):
