@@ -7,6 +7,7 @@ import json
 
 from alice_game import main2
 from goroda_i_strani import main3
+from translator import main4
 
 # создаём приложение
 # мы передаём __name__, в нём содержится информация,
@@ -156,6 +157,9 @@ def fake_main2():
 
 
 app.route('/post3', methods=['POST'])(main3)
+
+
+app.route('/post4', methods=['POST'])(main4)
 
 
 if __name__ == '__main__':
