@@ -5,6 +5,9 @@ import logging
 # библиотека, которая нам понадобится для работы с JSON
 import json
 
+from alice_game import main2
+from goroda_i_strani import main3
+
 # создаём приложение
 # мы передаём __name__, в нём содержится информация,
 # в каком модуле мы находимся.
@@ -30,7 +33,7 @@ logging.basicConfig(level=logging.INFO)
 sessionStorage = {}
 
 
-@app.route('/post', methods=['POST'])
+@app.route('/post1', methods=['POST'])
 # Функция получает тело запроса и возвращает ответ.
 # Внутри функции доступен request.json - это JSON,
 # который отправила нам Алиса в запросе POST
@@ -145,6 +148,14 @@ def get_suggests(user_id):
         })
 
     return suggests
+
+
+@app.route('/post2', methods=['POST'])
+def fake_main2():
+    return main2()
+
+
+app.route('/post3', methods=['POST'])(main3)
 
 
 if __name__ == '__main__':

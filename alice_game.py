@@ -8,16 +8,16 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 cities = {
-    'москва': ['937455/4d929920789df3f5e1ab', '1652229/c40bc1a3a538426176cd'],
-    'нью-йорк': ['997614/1416322c6ccbdeac29d8', '1533899/ab2f5dc5716a22765a98'],
-    'париж': ["1652229/7a65e389424fb28fc78c", '965417/a92f19811b76f741b6f8']
+    'москва': ['1540737/daa6e420d33102bf6947', '213044/7df73ae4cc715175059e'],
+    'нью-йорк': ['1652229/728d5c86707054d4745f', '1030494/aca7ed7acefde2606bdc'],
+    'париж': ["1652229/f77136c2364eb90a3ea8", '123494/aca7ed7acefd12e606bdc']
 }
 
 sessionStorage = {}
 
 
 @app.route('/post', methods=['POST'])
-def main():
+def main2():
     logging.info('Request: %r', request.json)
     response = {
         'session': request.json['session'],
